@@ -68,14 +68,14 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${outfit.variable}`}>
       <head>
-        {/* Set tema sebelum paint agar tidak flicker */}
+        {/* Set tema sebelum paint agar tidak flicker — default: LIGHT */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('preferred_theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}else{document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}}catch(e){document.documentElement.classList.add('dark');}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('preferred_theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}}catch(e){document.documentElement.classList.remove('dark');}})();`,
           }}
         />
       </head>
-      <body className="bg-[#080b11] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
+      <body className="bg-slate-50 text-slate-900 dark:bg-[#080b11] dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
         <ThemeProvider>
           <LanguageProvider>
             {children}

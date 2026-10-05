@@ -5,14 +5,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
     /* Offset anchor agar tidak tertutup navbar fixed + bottom nav mobile */
     scroll-padding-top: 88px;
     -webkit-text-size-adjust: 100%;
   }
 
-  html:not(.dark) {
-    color-scheme: light;
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
