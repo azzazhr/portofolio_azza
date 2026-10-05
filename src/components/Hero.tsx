@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Instagram, Mail, Sparkles, Code, BarChart3, CheckCircle2 } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Instagram, Mail, Code, BarChart3, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
@@ -31,31 +31,13 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col gap-6 text-left"
           >
-            {/* Status Pill */}
-            <div className="inline-flex max-w-full items-center gap-2 px-3 sm:px-4 py-2 rounded-full glass-panel border border-indigo-500/30 w-fit text-xs sm:text-sm font-medium text-indigo-700 dark:text-indigo-300">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              <span>{t.hero.availability}</span>
-            </div>
 
-            {/* Greeting & Name */}
+            {/* Big Headline */}
             <div className="space-y-2">
-              <h2 className="text-base sm:text-2xl font-medium text-slate-600 dark:text-slate-300 flex flex-wrap items-center gap-x-2 gap-y-1">
-                {t.hero.greeting}{" "}
-                <span className="text-slate-900 dark:text-white font-semibold underline decoration-indigo-500/60 decoration-2 underline-offset-4">
-                  {personalInfo.name}
-                </span>{" "}
-                <span className="inline-block animate-bounce">👋</span>
-              </h2>
-
-              {/* Big Headline */}
-              <h1 className="text-[1.9rem] leading-[1.2] sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white sm:leading-[1.15]">
-                {t.hero.headlineLine1}{" "}
-                <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent">
-                  {t.hero.headlineGradient}
+              <h1 className="text-[2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white sm:leading-[1.1]">
+                Hai, Saya{" "}
+                <span className="bg-gradient-to-r from-indigo-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Azzahra Attaqina
                 </span>
               </h1>
             </div>
