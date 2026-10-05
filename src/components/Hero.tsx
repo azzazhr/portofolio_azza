@@ -35,7 +35,7 @@ export default function Hero() {
             {/* Big Headline */}
             <div className="space-y-2">
               <h1 className="text-[2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white sm:leading-[1.1]">
-                Hai, Saya{" "}
+                {t.hero.headlineHi}{" "}
                 <span className="bg-gradient-to-r from-indigo-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Azzahra Attaqina
                 </span>
