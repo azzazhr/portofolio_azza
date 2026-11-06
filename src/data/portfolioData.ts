@@ -24,6 +24,18 @@ export const personalInfo: PersonalInfo = {
 
 export const projectsData: Project[] = [
   {
+    id: "analisis-konten-sentimen",
+    title: "Analisis Konten & Sentimen Media Sosial",
+    subtitle: "Aplikasi Business Analytics – Laboratorium Business Analytics",
+    description: "Aplikasi yang membantu dosen dan peneliti Laboratorium Business Analytics dalam mengimpor, memeriksa, mencari, menganalisis, memverifikasi, serta mengekspor data unggahan dan komentar media sosial Pemprov Jawa Timur.",
+    longDescription: "Aplikasi ini dirancang untuk mendukung kebutuhan riset dosen dan peneliti Laboratorium Business Analytics terhadap data media sosial Pemprov Jawa Timur. Menyediakan alur kerja terintegrasi mulai dari impor data unggahan dan komentar, pemeriksaan serta pencarian konten, analisis konten dan sentimen, verifikasi hasil, hingga ekspor data untuk kebutuhan pelaporan dan penelitian.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    category: "Data Analytics",
+    technologies: ["Python", "Pandas", "Data Analytics", "Sentiment Analysis", "Data Visualization"],
+    githubUrl: "https://github.com/azzazhr/magang-ba-2026",
+    isOngoing: true,
+  },
+  {
     id: "magang-in",
     title: "Magang.in",
     subtitle: "Sistem Informasi Manajemen Rekomendasi Magang",
@@ -180,6 +192,15 @@ export const experienceData: ExperienceItem[] = [
     period: "2025",
     description: "Berkontribusi dalam program pendidikan masyarakat dengan merancang materi pembelajaran berbasis web serta memfasilitasi sesi literasi digital bagi masyarakat.",
     technologies: ["Web Literacy", "Educational Content", "Public Speaking"],
+  },
+  {
+    id: "volunteer-baktikuu",
+    position: "Volunteer",
+    organization: "Baktikuu.id",
+    type: "Volunteer",
+    period: "2025",
+    description: "Mengikuti program volunteer melalui platform Baktikuu.id serta berkontribusi dalam kegiatan sosial dan pemberdayaan masyarakat.",
+    technologies: ["Volunteering", "Social Impact", "Teamwork"],
   },
   {
     id: "karirnex-excel",
