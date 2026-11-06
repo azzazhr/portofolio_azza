@@ -1,16 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Download, GraduationCap, UserCheck, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, Eye, X, GraduationCap, UserCheck, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import ProfileSlider from "@/components/ProfileSlider";
 
+const CV_PATH = "/CV_Azzahra_Attaqina.pdf";
+
 export default function About() {
   const { t, personalInfo } = useLanguage();
-
-  const handleDownloadCV = () => {
-    alert("CV Azzahra Attaqina siap diunduh dalam format PDF. (Link dummy/placeholder CV diaktifkan)");
-  };
+  const [showCv, setShowCv] = useState(false);
 
   return (
     <section id="about" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080b11] overflow-hidden scroll-mt-20">
@@ -108,11 +108,12 @@ export default function About() {
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
-                onClick={handleDownloadCV}
+                type="button"
+                onClick={() => setShowCv(true)}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all shadow-md shadow-indigo-600/30 hover:shadow-indigo-600/50"
               >
-                <Download className="w-4 h-4" />
-                <span>{t.hero.downloadCv}</span>
+                <Eye className="w-4 h-4" />
+                <span>{t.hero.viewCv}</span>
               </button>
               
               <a
@@ -129,6 +130,58 @@ export default function About() {
 
         </div>
       </div>
+
+      {/* CV Preview Modal */}
+      <AnimatePresence>
+        {showCv && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowCv(false)}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-slate-500/50 dark:bg-slate-950/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl h-[90vh] bg-white dark:bg-[#0d121f] border border-slate-300 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            >
+              <div className="flex items-center justify-between gap-3 p-3 sm:p-4 border-b border-slate-200 dark:border-slate-800">
+                <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white truncate">
+                  CV Azzahra Attaqina
+                </h3>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={CV_PATH}
+                    download="CV_Azzahra_Attaqina.pdf"
+                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold transition-colors shadow-md shadow-indigo-600/30"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>{t.hero.downloadCv}</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setShowCv(false)}
+                    aria-label="Close CV preview"
+                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              <iframe
+                src={CV_PATH}
+                title="CV Azzahra Attaqina"
+                className="w-full flex-1 bg-slate-100 dark:bg-slate-900"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
