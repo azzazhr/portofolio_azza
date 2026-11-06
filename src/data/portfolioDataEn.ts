@@ -24,6 +24,18 @@ export const personalInfoEn: PersonalInfo = {
 
 export const projectsDataEn: Project[] = [
   {
+    id: "analisis-konten-sentimen",
+    title: "Social Media Content & Sentiment Analysis",
+    subtitle: "Business Analytics Application – Business Analytics Laboratory",
+    description: "An application that helps lecturers and researchers at the Business Analytics Laboratory import, inspect, search, analyze, verify, and export social media posts and comments data of the East Java Provincial Government.",
+    longDescription: "This application supports the research needs of lecturers and researchers at the Business Analytics Laboratory regarding social media data of the East Java Provincial Government. It provides an integrated workflow from importing posts and comments data, inspecting and searching content, content and sentiment analysis, result verification, to exporting data for reporting and research purposes.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    category: "Data Analytics",
+    technologies: ["Python", "Pandas", "Data Analytics", "Sentiment Analysis", "Data Visualization"],
+    githubUrl: "https://github.com/azzazhr/magang-ba-2026",
+    isOngoing: true,
+  },
+  {
     id: "magang-in",
     title: "Magang.in",
     subtitle: "Internship Management & Recommendation Information System",
@@ -180,6 +192,15 @@ export const experienceDataEn: ExperienceItem[] = [
     period: "2025",
     description: "Contributed to community education programs by designing web-based learning materials and facilitating digital literacy sessions for the public.",
     technologies: ["Web Literacy", "Educational Content", "Public Speaking"],
+  },
+  {
+    id: "volunteer-baktikuu",
+    position: "Volunteer",
+    organization: "Baktikuu.id",
+    type: "Volunteer",
+    period: "2025",
+    description: "Participated in volunteer programs through the Baktikuu.id platform and contributed to social and community empowerment activities.",
+    technologies: ["Volunteering", "Social Impact", "Teamwork"],
   },
   {
     id: "karirnex-excel",
