@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, MessageSquare, Github, Linkedin, Instagram, CheckCircle2, Sparkles } from "lucide-react";
+import { Mail, MapPin, Send, MessageSquare, Github, Linkedin, Instagram, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
@@ -16,17 +16,36 @@ export default function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1000);
+    } catch (err) {
+      console.error("Contact form error:", err);
+      setError(t.contact.sendError);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -238,6 +257,13 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors resize-none"
                     />
                   </div>
+
+                  {error && (
+                    <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-500/40 text-red-600 dark:text-red-400 text-xs sm:text-sm">
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <span>{error}</span>
+                    </div>
+                  )}
 
                   <button
                     type="submit"
