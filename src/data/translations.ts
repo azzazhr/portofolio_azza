@@ -114,6 +114,7 @@ export const translations = {
       successTitle: "Pesan Berhasil Terkirim!",
       successDesc: "Terima kasih telah menghubungi. Saya akan segera membalas pesan Anda melalui email.",
       sendAnother: "Kirim Pesan Lain",
+      sendError: "Pesan gagal terkirim. Silakan coba lagi atau hubungi saya langsung melalui email.",
     },
     footer: {
       copyright: "Hak Cipta Dilindungi.",
@@ -233,6 +234,7 @@ export const translations = {
       successTitle: "Message Sent Successfully!",
       successDesc: "Thank you for reaching out. I will get back to you shortly via email.",
       sendAnother: "Send Another Message",
+      sendError: "Failed to send your message. Please try again or reach me directly via email.",
     },
     footer: {
       copyright: "All Rights Reserved.",
