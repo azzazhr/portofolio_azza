@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Instagram, Mail, Code, BarChart3, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import Image from "next/image";
+import ProfileSlider from "@/components/ProfileSlider";
 
 export default function Hero() {
   const { t, personalInfo } = useLanguage();
@@ -128,16 +128,12 @@ export default function Hero() {
             <div className="relative w-full max-w-sm sm:max-w-md glass-panel p-4 sm:p-6 rounded-3xl border border-slate-300 dark:border-slate-700/60 shadow-2xl space-y-5 sm:space-y-6">
               
               {/* Profile Image & Avatar Showcase */}
-              <div className="relative w-full aspect-[4/5] sm:aspect-[2/3] rounded-2xl overflow-hidden border border-indigo-500/20 bg-slate-100 dark:bg-slate-900 group">
-                <Image
-                  src="/images/profile.jpg"
+              <div className="relative w-full aspect-[4/5] sm:aspect-[2/3] rounded-2xl overflow-hidden border border-indigo-500/20 bg-slate-100 dark:bg-slate-900">
+                <ProfileSlider
                   alt={personalInfo.name}
-                  fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                   priority
                 />
-
               </div>
 
               {/* Name Caption */}
