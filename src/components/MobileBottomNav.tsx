@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Home, User, Wrench, FolderGit2, Briefcase, GraduationCap, Mail } from "lucide-react";
+import { Home, User, Code2, FolderGit2, Briefcase, GraduationCap, Mail } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileBottomNav() {
@@ -15,7 +15,7 @@ export default function MobileBottomNav() {
   const items = [
     { id: "home",       label: t.nav.home,     href: "#home",       Icon: Home },
     { id: "about",      label: t.nav.about,    href: "#about",      Icon: User },
-    { id: "skills",     label: t.nav.skills,   href: "#skills",     Icon: Wrench },
+    { id: "skills",     label: t.nav.skills,   href: "#skills",     Icon: Code2 },
     { id: "projects",   label: t.nav.projects, href: "#projects",   Icon: FolderGit2 },
     { id: "contact",    label: t.nav.contact,  href: "#contact",    Icon: Mail },
   ];
