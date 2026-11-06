@@ -56,7 +56,7 @@ export default function Experience() {
                   </div>
 
                   {/* Content Card Container */}
-                  <div className={`ml-9 sm:ml-12 md:ml-0 md:w-1/2 ${isEven ? "md:pl-10" : "md:pr-10"} w-full`}>
+                  <div className={`ml-9 sm:ml-12 md:ml-0 md:flex-none md:w-1/2 ${isEven ? "md:pl-10" : "md:pr-10"} w-auto min-w-0`}>
                     <div className="glass-panel glass-panel-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 space-y-3 sm:space-y-4">
                       
                       {/* Top Header */}
