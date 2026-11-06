@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Download, GraduationCap, UserCheck, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import Image from "next/image";
+import ProfileSlider from "@/components/ProfileSlider";
 
 export default function About() {
   const { t, personalInfo } = useLanguage();
@@ -46,14 +46,11 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden glass-panel border border-slate-300 dark:border-slate-700/60 p-3 shadow-2xl">
               <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900">
-                <Image
-                  src="/images/profile.jpg"
+                <ProfileSlider
                   alt="Azzahra Attaqina Profile"
-                  fill
                   sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover object-center transition-transform duration-500 hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#080b11] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#080b11] via-transparent to-transparent opacity-80 pointer-events-none" />
               </div>
 
               {/* Floating Badge */}
