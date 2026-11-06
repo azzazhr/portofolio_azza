@@ -493,7 +493,7 @@ export default function IntroScreen() {
                         className="absolute inset-y-0 w-1/4 rotate-12 bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent"
                       />
                       <span className="relative z-10">
-                        {isID ? "Jelajahi Portofolio" : "Explore Portfolio"}
+                        {isID ? "Jelajahi Portofolio" : "Explore Portofolio"}
                       </span>
                       <span className="relative z-10 grid h-8 w-8 place-items-center rounded-full bg-slate-900 text-white transition-transform group-hover:translate-x-1">
                         <ArrowRight className="h-4 w-4" />
