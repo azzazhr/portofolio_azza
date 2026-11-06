@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, Home, User, Wrench, FolderGit2, Briefcase, GraduationCap, Mail } from "lucide-react";
+import { Menu, X, ArrowUpRight, Home, User, Code2, FolderGit2, Briefcase, GraduationCap, Mail } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -17,7 +17,7 @@ export default function Navbar() {
   const navLinks = [
     { id: "home",       name: t.nav.home,       href: "#home",       Icon: Home },
     { id: "about",      name: t.nav.about,      href: "#about",      Icon: User },
-    { id: "skills",     name: t.nav.skills,     href: "#skills",     Icon: Wrench },
+    { id: "skills",     name: t.nav.skills,     href: "#skills",     Icon: Code2 },
     { id: "projects",   name: t.nav.projects,   href: "#projects",   Icon: FolderGit2 },
     { id: "experience", name: t.nav.experience, href: "#experience", Icon: Briefcase },
     { id: "education",  name: t.nav.education,  href: "#education",  Icon: GraduationCap },
