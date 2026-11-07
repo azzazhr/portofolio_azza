@@ -1,15 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
-
-/* Preserved exclusively for the approved Hero design */
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -61,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         {/* Set tema sebelum paint agar tidak flicker — default: LIGHT MODE */}
         <script
