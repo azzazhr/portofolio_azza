@@ -164,7 +164,7 @@ export const translations = {
       education: "Education & Certs",
       contact: "Contact",
       letsTalk: "Let's Talk",
-      portfolioSubtitle: "Portfolio",
+      portfolioSubtitle: "Portofolio",
       openMenu: "Open Menu",
       closeMenu: "Close Menu",
     },

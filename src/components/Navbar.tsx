@@ -21,13 +21,13 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { id: "home",       name: t.nav.home,       href: "#home",       Icon: Home },
-    { id: "about",      name: t.nav.about,      href: "#about",      Icon: User },
-    { id: "skills",     name: t.nav.skills,     href: "#skills",     Icon: Code2 },
-    { id: "projects",   name: t.nav.projects,   href: "#projects",   Icon: FolderGit2 },
+    { id: "home", name: t.nav.home, href: "#home", Icon: Home },
+    { id: "about", name: t.nav.about, href: "#about", Icon: User },
+    { id: "skills", name: t.nav.skills, href: "#skills", Icon: Code2 },
+    { id: "projects", name: t.nav.projects, href: "#projects", Icon: FolderGit2 },
     { id: "experience", name: t.nav.experience, href: "#experience", Icon: Briefcase },
-    { id: "education",  name: t.nav.education,  href: "#education",  Icon: GraduationCap },
-    { id: "contact",    name: t.nav.contact,    href: "#contact",    Icon: Mail },
+    { id: "education", name: t.nav.education, href: "#education", Icon: GraduationCap },
+    { id: "contact", name: t.nav.contact, href: "#contact", Icon: Mail },
   ];
 
   useEffect(() => {
@@ -71,17 +71,17 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${mobileMenuOpen ? "z-[85]" : "z-40"
+          } ${scrolled
             ? "bg-[#F8F6F1]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-md border-b border-[#E8E1D7] dark:border-[#403B34] py-2.5 sm:py-3 shadow-md shadow-[#242321]/5 dark:shadow-black/20"
             : "bg-transparent py-3 sm:py-5"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2">
-            
-            {/* Left: Logo */}
-            <div className="flex items-center min-w-0">
+
+            {/* Left: Logo — hidden on mobile when drawer is open */}
+            <div className={`flex items-center min-w-0 transition-opacity duration-200 ${mobileMenuOpen ? "opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto" : "opacity-100"}`}>
               <a
                 href="#home"
                 className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer min-w-0"
@@ -116,11 +116,10 @@ export default function Navbar() {
                     <a
                       key={link.id}
                       href={link.href}
-                      className={`px-2.5 py-1.5 font-ui text-[11px] xl:text-xs font-semibold tracking-[0.04em] rounded-full transition-all duration-200 relative whitespace-nowrap ${
-                        isActive
+                      className={`px-2.5 py-1.5 font-ui text-[11px] xl:text-xs font-semibold tracking-[0.04em] rounded-full transition-all duration-200 relative whitespace-nowrap ${isActive
                           ? "text-white font-semibold"
                           : "text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#24221F]/60"
-                      }`}
+                        }`}
                     >
                       {isActive && (
                         <motion.div
@@ -138,7 +137,7 @@ export default function Navbar() {
 
             {/* Right: Actions */}
             <div className="flex shrink-0 items-center justify-end">
-              
+
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2">
                 <ThemeToggle />
@@ -226,11 +225,10 @@ export default function Navbar() {
                           key={id}
                           href={href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center gap-3 px-3.5 py-3 rounded-xl font-ui text-sm font-medium tracking-[0.01em] transition-all ${
-                            isActive
+                          className={`flex items-center gap-3 px-3.5 py-3 rounded-xl font-ui text-sm font-medium tracking-[0.01em] transition-all ${isActive
                               ? "bg-[#B59662]/15 dark:bg-[#C6A878]/15 text-[#B59662] dark:text-[#C6A878] font-semibold"
                               : "text-[#81776B] dark:text-[#B7ADA0] hover:bg-[#F0EBE3] dark:hover:bg-[#292724] hover:text-[#242321] dark:hover:text-[#F5F1E9]"
-                          }`}
+                            }`}
                         >
                           <span className={`p-1.5 rounded-lg ${isActive ? "bg-[#B59662]/20 dark:bg-[#C6A878]/20 text-[#B59662] dark:text-[#C6A878]" : "bg-[#F0EBE3] dark:bg-[#292724] text-[#81776B] dark:text-[#B7ADA0]"}`}>
                             <Icon className="w-4 h-4" strokeWidth={isActive ? 2.4 : 2} />

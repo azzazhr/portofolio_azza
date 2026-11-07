@@ -49,13 +49,13 @@ const config: Config = {
       },
       fontFamily: {
         // Secondary font — clean, modern body copy
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        body: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        sans: ["'DM Sans'", "var(--font-dm-sans)", "system-ui", "sans-serif"],
+        body: ["'DM Sans'", "var(--font-dm-sans)", "system-ui", "sans-serif"],
         // Primary display font — luxury editorial voice
-        display: ["var(--font-cormorant)", "'Playfair Display'", "Didot", "'Bodoni MT'", "Georgia", "serif"],
-        serif: ["var(--font-cormorant)", "'Playfair Display'", "Didot", "'Bodoni MT'", "Georgia", "serif"],
+        display: ["'Cormorant Garamond'", "var(--font-cormorant)", "'Playfair Display'", "Georgia", "serif"],
+        serif: ["'Cormorant Garamond'", "var(--font-cormorant)", "'Playfair Display'", "Georgia", "serif"],
         // Navigation & interface font
-        ui: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        ui: ["'Manrope'", "var(--font-manrope)", "system-ui", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
       },
     },
