@@ -23,7 +23,7 @@ export default function Footer() {
             <a href="#home" className="flex items-center gap-2.5">
               <div className="relative w-8 h-8 shrink-0">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo(1).jpg"
                   alt="Logo Azzahra Attaqina"
                   fill
                   sizes="32px"

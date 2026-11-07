@@ -88,7 +88,7 @@ export default function Navbar() {
               >
                 <div className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 group-hover:scale-105 transition-transform duration-300">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo(1).jpg"
                     alt="Logo Azzahra Attaqina"
                     fill
                     sizes="(max-width: 640px) 32px, 40px"
@@ -198,7 +198,7 @@ export default function Navbar() {
                   <div className="flex items-center justify-between px-4 py-3.5 border-b border-[#E8E1D7] dark:border-[#403B34] shrink-0">
                     <a href="#home" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 min-w-0">
                       <div className="relative w-8 h-8 shrink-0">
-                        <Image src="/images/logo.png" alt="Logo" fill sizes="32px" className="object-contain" />
+                        <Image src="/images/logo(1).jpg" alt="Logo" fill sizes="32px" className="object-contain" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="font-display font-semibold text-base text-[#242321] dark:text-[#F5F1E9] leading-tight tracking-[0.01em] truncate">

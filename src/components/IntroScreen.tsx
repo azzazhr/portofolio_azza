@@ -358,7 +358,7 @@ export default function IntroScreen() {
                 style={{ position: "absolute", inset: 0 }}
               >
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo(1).jpg"
                   alt="Logo"
                   width={128}
                   height={128}

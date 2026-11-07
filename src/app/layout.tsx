@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     email: true,
   },
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/logo(1).jpg",
+    apple: "/images/logo(1).jpg",
   },
 };
 
