@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 export default function FloatingWhatsApp() {
-  const { personalInfo } = useLanguage();
+  const { personalInfo, t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export default function FloatingWhatsApp() {
           href={`https://wa.me/${personalInfo.whatsapp}?text=${encodeURIComponent(personalInfo.whatsappMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat WhatsApp"
-          title="Chat WhatsApp"
+          aria-label={t.whatsapp.chat}
+          title={t.whatsapp.chat}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -34,7 +34,7 @@ export default function FloatingWhatsApp() {
           {/* Ping animasi */}
           <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 pointer-events-none" />
           <span className="hidden sm:block max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 group-hover:max-w-[140px] group-hover:ml-4">
-            Chat WhatsApp
+            {t.whatsapp.chat}
           </span>
           <span className="p-3.5 md:p-4 min-w-[52px] min-h-[52px] flex items-center justify-center">
             <WhatsAppIcon className="w-6 h-6" />

@@ -35,6 +35,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("preferred_language", lang);
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang;
+    }
   };
 
   const toggleLanguage = () => {

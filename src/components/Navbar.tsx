@@ -73,7 +73,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 dark:bg-[#080b11]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 py-2.5 sm:py-3 shadow-lg shadow-indigo-950/5 dark:shadow-indigo-950/25"
+            ? "bg-[#F8F6F1]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-md border-b border-[#E8E1D7] dark:border-[#403B34] py-2.5 sm:py-3 shadow-md shadow-[#242321]/5 dark:shadow-black/20"
             : "bg-transparent py-3 sm:py-5"
         }`}
       >
@@ -97,11 +97,11 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="font-display font-bold text-sm sm:text-base lg:text-lg text-slate-900 dark:text-white tracking-tight truncate group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <span className="font-display font-semibold text-base sm:text-lg lg:text-xl text-[#242321] dark:text-[#F5F1E9] tracking-[0.01em] truncate group-hover:text-[#B59662] dark:group-hover:text-[#C6A878] transition-colors">
                     {personalInfo.name}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium truncate -mt-0.5 sm:-mt-1">
-                    Portofolio
+                  <span className="font-ui text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-[#81776B] dark:text-[#B7ADA0] font-semibold truncate -mt-0.5 sm:-mt-1">
+                    {t.nav.portfolioSubtitle}
                   </span>
                 </div>
               </a>
@@ -109,23 +109,23 @@ export default function Navbar() {
 
             {/* Center: Desktop Nav Items */}
             <div className="hidden lg:flex shrink-0 overflow-hidden flex-1 justify-center">
-              <nav className="flex items-center gap-0.5 bg-white/70 dark:bg-[#111622]/60 border border-slate-200 dark:border-slate-800/80 rounded-full px-2.5 py-1 backdrop-blur-md shadow-inner">
+              <nav className="flex items-center gap-0.5 bg-[#FFFFFF]/80 dark:bg-[#292724]/80 border border-[#E8E1D7] dark:border-[#403B34] rounded-full px-2.5 py-1 backdrop-blur-md shadow-inner">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.id;
                   return (
                     <a
                       key={link.id}
                       href={link.href}
-                      className={`px-2.5 py-1.5 text-[11px] xl:text-xs font-medium rounded-full transition-all duration-200 relative whitespace-nowrap ${
+                      className={`px-2.5 py-1.5 font-ui text-[11px] xl:text-xs font-semibold tracking-[0.04em] rounded-full transition-all duration-200 relative whitespace-nowrap ${
                         isActive
-                          ? "text-slate-900 dark:text-white font-semibold"
-                          : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800/40"
+                          ? "text-white font-semibold"
+                          : "text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#24221F]/60"
                       }`}
                     >
                       {isActive && (
                         <motion.div
                           layoutId="activeNavBackground"
-                          className="absolute inset-0 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full -z-10 shadow-sm shadow-indigo-500/30"
+                          className="absolute inset-0 bg-gradient-to-r from-[#B59662] to-[#9E8050] dark:from-[#C6A878] dark:to-[#B59662] rounded-full -z-10 shadow-sm shadow-[#B59662]/25"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -145,7 +145,7 @@ export default function Navbar() {
                 <LanguageToggle />
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium text-[11px] xl:text-xs transition-all duration-300 shadow-md shadow-indigo-500/25 hover:shadow-lg hover:shadow-indigo-500/40 hover:-translate-y-0.5 active:translate-y-0 shrink-0 whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-[#B59662] to-[#9E8050] hover:from-[#9E8050] hover:to-[#B59662] dark:from-[#C6A878] dark:to-[#B59662] dark:hover:from-[#D8BC8C] dark:hover:to-[#C6A878] text-white font-ui font-semibold text-[11px] xl:text-xs tracking-[0.05em] transition-all duration-300 shadow-md shadow-[#B59662]/25 hover:shadow-lg hover:shadow-[#B59662]/40 hover:-translate-y-0.5 active:translate-y-0 shrink-0 whitespace-nowrap"
                 >
                   <span>{t.nav.letsTalk}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -158,8 +158,8 @@ export default function Navbar() {
                 <LanguageToggle compact />
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="p-2 sm:p-2.5 rounded-full bg-white dark:bg-[#111622]/90 border border-slate-300 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-indigo-400 dark:hover:border-indigo-500 focus:outline-none transition-all duration-200 active:scale-95 flex items-center justify-center shrink-0 shadow-sm"
-                  aria-label={mobileMenuOpen ? "Tutup Menu" : "Buka Menu"}
+                  className="p-2 sm:p-2.5 rounded-full bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:text-[#B59662] dark:hover:text-[#C6A878] hover:border-[#B59662] dark:hover:border-[#C6A878] focus:outline-none transition-all duration-200 active:scale-95 flex items-center justify-center shrink-0 shadow-sm"
+                  aria-label={mobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
                   aria-expanded={mobileMenuOpen}
                 >
                   {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
@@ -183,7 +183,7 @@ export default function Navbar() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="fixed inset-0 z-[80] bg-slate-950/60 backdrop-blur-sm"
+                  className="fixed inset-0 z-[80] bg-black/60 backdrop-blur-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 />
 
@@ -193,25 +193,25 @@ export default function Navbar() {
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
                   transition={{ type: "spring", stiffness: 350, damping: 35 }}
-                  className="fixed top-0 right-0 bottom-0 z-[90] w-[85vw] max-w-xs h-screen h-[100dvh] bg-white dark:bg-[#0a0e1a] border-l border-slate-200 dark:border-slate-800 flex flex-col shadow-2xl overflow-hidden"
+                  className="fixed top-0 right-0 bottom-0 z-[90] w-[85vw] max-w-xs h-screen h-[100dvh] bg-[#FFFFFF] dark:bg-[#1D1C1A] border-l border-[#E8E1D7] dark:border-[#403B34] flex flex-col shadow-2xl overflow-hidden"
                 >
                   {/* Drawer Header */}
-                  <div className="flex items-center justify-between px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 shrink-0">
+                  <div className="flex items-center justify-between px-4 py-3.5 border-b border-[#E8E1D7] dark:border-[#403B34] shrink-0">
                     <a href="#home" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 min-w-0">
                       <div className="relative w-8 h-8 shrink-0">
                         <Image src="/images/logo.png" alt="Logo" fill sizes="32px" className="object-contain" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="font-display font-bold text-sm text-slate-900 dark:text-white leading-tight truncate">
+                        <span className="font-display font-semibold text-base text-[#242321] dark:text-[#F5F1E9] leading-tight tracking-[0.01em] truncate">
                           {personalInfo.name}
                         </span>
-                        <span className="text-[9px] uppercase tracking-wider text-slate-400 font-medium">Portofolio</span>
+                        <span className="font-ui text-[9px] uppercase tracking-[0.22em] text-[#81776B] dark:text-[#B7ADA0] font-semibold">{t.nav.portfolioSubtitle}</span>
                       </div>
                     </a>
                     <button
                       onClick={() => setMobileMenuOpen(false)}
-                      className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0 ml-2"
-                      aria-label="Tutup Menu"
+                      className="p-1.5 sm:p-2 rounded-xl bg-[#F0EBE3] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] transition-colors shrink-0 ml-2"
+                      aria-label={t.nav.closeMenu}
                     >
                       <X className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
@@ -226,18 +226,18 @@ export default function Navbar() {
                           key={id}
                           href={href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium transition-all ${
+                          className={`flex items-center gap-3 px-3.5 py-3 rounded-xl font-ui text-sm font-medium tracking-[0.01em] transition-all ${
                             isActive
-                              ? "bg-indigo-600/15 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 font-semibold"
-                              : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-white"
+                              ? "bg-[#B59662]/15 dark:bg-[#C6A878]/15 text-[#B59662] dark:text-[#C6A878] font-semibold"
+                              : "text-[#81776B] dark:text-[#B7ADA0] hover:bg-[#F0EBE3] dark:hover:bg-[#292724] hover:text-[#242321] dark:hover:text-[#F5F1E9]"
                           }`}
                         >
-                          <span className={`p-1.5 rounded-lg ${isActive ? "bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400" : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"}`}>
+                          <span className={`p-1.5 rounded-lg ${isActive ? "bg-[#B59662]/20 dark:bg-[#C6A878]/20 text-[#B59662] dark:text-[#C6A878]" : "bg-[#F0EBE3] dark:bg-[#292724] text-[#81776B] dark:text-[#B7ADA0]"}`}>
                             <Icon className="w-4 h-4" strokeWidth={isActive ? 2.4 : 2} />
                           </span>
                           <span className="truncate">{name}</span>
                           {isActive && (
-                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#B59662] dark:bg-[#C6A878] shrink-0" />
                           )}
                         </a>
                       );
@@ -245,7 +245,7 @@ export default function Navbar() {
                   </div>
 
                   {/* Drawer Footer */}
-                  <div className="px-4 py-4 border-t border-slate-200 dark:border-slate-800 space-y-3.5 bg-slate-50/60 dark:bg-slate-900/40 shrink-0">
+                  <div className="px-4 py-4 border-t border-[#E8E1D7] dark:border-[#403B34] space-y-3.5 bg-[#F8F6F1] dark:bg-[#24221F] shrink-0">
                     {/* Theme + Language */}
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
@@ -258,7 +258,7 @@ export default function Navbar() {
                     <a
                       href="#contact"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-md shadow-indigo-500/25 active:scale-[0.98] transition-all"
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-[#B59662] to-[#9E8050] hover:from-[#9E8050] hover:to-[#B59662] dark:from-[#C6A878] dark:to-[#B59662] text-white font-ui font-semibold text-sm tracking-[0.04em] shadow-md shadow-[#B59662]/25 active:scale-[0.98] transition-all"
                     >
                       <span>{t.nav.letsTalk}</span>
                       <ArrowUpRight className="w-4 h-4" />

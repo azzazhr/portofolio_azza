@@ -13,22 +13,22 @@ export default function About() {
   const [showCv, setShowCv] = useState(false);
 
   return (
-    <section id="about" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080b11] overflow-hidden scroll-mt-20">
-      {/* Glow backgrounds */}
-      <div className="absolute top-1/2 left-0 w-[450px] h-[450px] bg-indigo-600/10 rounded-full blur-[130px] pointer-events-none" />
+    <section id="about" className="py-16 sm:py-24 relative bg-[#F0EBE3] dark:bg-[#24221F] overflow-hidden scroll-mt-20">
+      {/* Glow backgrounds (subtle gold) */}
+      <div className="absolute top-1/2 left-0 w-[450px] h-[450px] bg-[#B59662]/5 dark:bg-[#C6A878]/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800/60 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+          <div className="type-eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B59662]/10 dark:bg-[#C6A878]/10 border border-[#B59662]/30 dark:border-[#C6A878]/30">
             <UserCheck className="w-3.5 h-3.5" />
             <span>{t.about.sectionTag}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
-            {t.about.sectionTitle} <span className="text-gradient-primary">Azzahra Attaqina</span>
+          <h2 className="type-section-title text-[2.2rem] sm:text-5xl lg:text-[3.5rem]">
+            {t.about.sectionTitle} <span className="text-gradient-gold italic">Azzahra Attaqina</span>
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
+          <p className="type-section-subtitle">
             {t.about.subTitle}
           </p>
         </div>
@@ -44,17 +44,17 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden glass-panel border border-slate-300 dark:border-slate-700/60 p-3 shadow-2xl">
-              <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900">
+            <div className="relative rounded-3xl overflow-hidden glass-panel border border-[#E8E1D7] dark:border-[#403B34] p-3 shadow-xl">
+              <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-[#F8F6F1] dark:bg-[#1D1C1A]">
                 <ProfileSlider
                   alt="Azzahra Attaqina Profile"
                   sizes="(max-width: 768px) 100vw, 500px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#080b11] via-transparent to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#F0EBE3] dark:from-[#24221F] via-transparent to-transparent opacity-80 pointer-events-none" />
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute top-6 right-6 px-4 py-2 rounded-xl bg-white/90 dark:bg-[#080b11]/90 backdrop-blur-md border border-indigo-500/40 text-xs font-semibold text-indigo-700 dark:text-indigo-300 flex items-center gap-2 shadow-lg">
+              <div className="absolute top-6 right-6 px-4 py-2 rounded-xl bg-[#FFFFFF]/95 dark:bg-[#292724]/95 backdrop-blur-md border border-[#B59662]/40 font-ui text-[11px] font-semibold uppercase tracking-[0.1em] text-[#B59662] dark:text-[#C6A878] flex items-center gap-2 shadow-lg">
                 <span>{t.about.bnspBadge}</span>
               </div>
             </div>
@@ -69,11 +69,11 @@ export default function About() {
             className="lg:col-span-7 space-y-8"
           >
             <div className="space-y-4">
-              <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white flex items-start gap-3">
-                <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400 shrink-0 mt-1" />
+              <h3 className="type-card-title text-2xl sm:text-3xl flex items-start gap-3">
+                <GraduationCap className="w-6 h-6 text-[#B59662] dark:text-[#C6A878] shrink-0 mt-1" />
                 <span>{t.about.fullBioHeader}</span>
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              <p className="type-body">
                 {personalInfo.fullBio}
               </p>
             </div>
@@ -81,8 +81,8 @@ export default function About() {
             {/* Highlights bullet list */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {t.about.highlights.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-300">
-                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div key={idx} className="flex items-center gap-2.5 font-body text-sm leading-relaxed text-[#81776B] dark:text-[#B7ADA0]">
+                  <CheckCircle className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -93,12 +93,12 @@ export default function About() {
               {personalInfo.stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all duration-300 text-center flex flex-col justify-center"
+                  className="p-4 rounded-2xl bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] hover:border-[#B59662]/40 dark:hover:border-[#C6A878]/40 transition-all duration-300 text-center flex flex-col justify-center shadow-sm"
                 >
-                  <span className="text-2xl sm:text-3xl font-display font-extrabold text-gradient-primary">
+                  <span className="font-display font-semibold text-3xl sm:text-4xl tracking-tight text-gradient-gold">
                     {stat.value}
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+                  <span className="font-ui text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#81776B] dark:text-[#B7ADA0] font-semibold mt-1.5">
                     {stat.label}
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export default function About() {
               <button
                 type="button"
                 onClick={() => setShowCv(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all shadow-md shadow-indigo-600/30 hover:shadow-indigo-600/50"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#B59662] hover:bg-[#9E8050] dark:bg-[#C6A878] dark:hover:bg-[#D8BC8C] text-white font-ui font-semibold text-sm tracking-[0.02em] transition-all shadow-md shadow-[#B59662]/25"
               >
                 <Eye className="w-4 h-4" />
                 <span>{t.hero.viewCv}</span>
@@ -120,7 +120,7 @@ export default function About() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] hover:border-[#B59662]/50 dark:hover:border-[#C6A878]/50 text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] font-ui font-semibold text-sm tracking-[0.02em] transition-all shadow-sm"
               >
                 <span>LinkedIn Profile</span>
               </a>
@@ -139,7 +139,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowCv(false)}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-slate-500/50 dark:bg-slate-950/80 backdrop-blur-md"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-md"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 16 }}
@@ -147,17 +147,17 @@ export default function About() {
               exit={{ opacity: 0, scale: 0.96, y: 16 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl h-[90vh] bg-white dark:bg-[#0d121f] border border-slate-300 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+              className="relative w-full max-w-4xl h-[90vh] bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] rounded-2xl shadow-2xl flex flex-col overflow-hidden"
             >
-              <div className="flex items-center justify-between gap-3 p-3 sm:p-4 border-b border-slate-200 dark:border-slate-800">
-                <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white truncate">
+              <div className="flex items-center justify-between gap-3 p-3 sm:p-4 border-b border-[#E8E1D7] dark:border-[#403B34]">
+                <h3 className="font-display font-semibold text-base sm:text-lg tracking-[0.01em] text-[#242321] dark:text-[#F5F1E9] truncate">
                   CV Azzahra Attaqina
                 </h3>
                 <div className="flex items-center gap-2 shrink-0">
                   <a
                     href={CV_PATH}
                     download="CV_Azzahra_Attaqina.pdf"
-                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold transition-colors shadow-md shadow-indigo-600/30"
+                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-[#B59662] hover:bg-[#9E8050] text-white font-ui text-xs sm:text-sm font-semibold tracking-[0.02em] transition-colors shadow-md shadow-[#B59662]/25"
                   >
                     <Download className="w-4 h-4" />
                     <span>{t.hero.downloadCv}</span>
@@ -166,7 +166,7 @@ export default function About() {
                     type="button"
                     onClick={() => setShowCv(false)}
                     aria-label="Close CV preview"
-                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="p-2 rounded-xl bg-[#F0EBE3] dark:bg-[#1D1C1A] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -176,7 +176,7 @@ export default function About() {
               <iframe
                 src={CV_PATH}
                 title="CV Azzahra Attaqina"
-                className="w-full flex-1 bg-slate-100 dark:bg-slate-900"
+                className="w-full flex-1 bg-[#F8F6F1] dark:bg-[#1D1C1A]"
               />
             </motion.div>
           </motion.div>

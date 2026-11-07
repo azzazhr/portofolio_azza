@@ -11,16 +11,16 @@ export default function LanguageToggle({
   className?: string;
   compact?: boolean;
 }) {
-  const { language, setLanguage, toggleLanguage } = useLanguage();
+  const { language, setLanguage, toggleLanguage, t } = useLanguage();
 
   if (compact) {
     return (
       <button
         type="button"
         onClick={toggleLanguage}
-        aria-label={language === "id" ? "Beralih ke Bahasa Inggris" : "Switch to Indonesian"}
-        title={language === "id" ? "Beralih ke English" : "Beralih ke Bahasa Indonesia"}
-        className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white border border-slate-300 dark:bg-[#111622]/90 dark:border-slate-700/80 backdrop-blur-md shadow-sm hover:border-indigo-400 dark:hover:border-indigo-500 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-all duration-200 active:scale-95 shrink-0 ${className}`}
+        aria-label={language === "id" ? t.lang.switchToEn : t.lang.switchToId}
+        title={language === "id" ? t.lang.switchToEn : t.lang.switchToId}
+        className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] backdrop-blur-md shadow-sm hover:border-[#B59662]/50 dark:hover:border-[#C6A878]/50 text-[#242321] dark:text-[#F5F1E9] text-xs font-semibold transition-all duration-200 active:scale-95 shrink-0 ${className}`}
       >
         {language === "id" ? (
           <>
@@ -39,17 +39,18 @@ export default function LanguageToggle({
 
   return (
     <div
-      className={`inline-flex items-center p-1 rounded-full bg-white/90 dark:bg-[#111622]/90 border border-slate-300 dark:border-slate-700/80 backdrop-blur-md shadow-md shrink-0 ${className}`}
+      className={`inline-flex items-center p-1 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] backdrop-blur-md shadow-sm shrink-0 ${className}`}
       role="group"
       aria-label="Language selector"
     >
       <button
         type="button"
         onClick={() => setLanguage("id")}
-        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "id"
-            ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm shadow-indigo-500/30"
-            : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800/50"
-          }`}
+        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
+          language === "id"
+            ? "bg-gradient-to-r from-[#B59662] to-[#9E8050] dark:from-[#C6A878] dark:to-[#B59662] text-white shadow-sm shadow-[#B59662]/20"
+            : "text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#24221F]"
+        }`}
         title="Bahasa Indonesia"
       >
         <IndonesiaFlag className="w-4 h-3" />
@@ -59,10 +60,11 @@ export default function LanguageToggle({
       <button
         type="button"
         onClick={() => setLanguage("en")}
-        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "en"
-            ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm shadow-indigo-500/30"
-            : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800/50"
-          }`}
+        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
+          language === "en"
+            ? "bg-gradient-to-r from-[#B59662] to-[#9E8050] dark:from-[#C6A878] dark:to-[#B59662] text-white shadow-sm shadow-[#B59662]/20"
+            : "text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#24221F]"
+        }`}
         title="English"
       >
         <UKFlag className="w-4 h-3" />

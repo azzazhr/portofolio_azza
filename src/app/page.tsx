@@ -12,7 +12,7 @@ import IntroScreen from "@/components/IntroScreen";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#080b11] dark:text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white">
+    <main className="min-h-screen bg-[#F8F6F1] text-[#242321] dark:bg-[#1D1C1A] dark:text-[#F5F1E9] flex flex-col selection:bg-[#B59662] selection:text-white">
       <IntroScreen />
       <Navbar />
       <Hero />

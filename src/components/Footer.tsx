@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-100 dark:bg-[#06080d] border-t border-slate-200 dark:border-slate-800/80 pt-16 pb-12 text-slate-500 dark:text-slate-400 text-sm">
+    <footer className="bg-[#F0EBE3] dark:bg-[#1D1C1A] border-t border-[#E8E1D7] dark:border-[#403B34] pt-16 pb-12 text-[#81776B] dark:text-[#B7ADA0] text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Top Footer Row */}
@@ -30,23 +30,23 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-lg text-slate-900 dark:text-white">
+              <span className="font-display font-semibold text-xl tracking-[0.01em] text-[#242321] dark:text-[#F5F1E9]">
                 {personalInfo.name}
               </span>
             </a>
-            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+            <p className="font-body text-sm leading-[1.75] text-[#81776B] dark:text-[#B7ADA0] max-w-sm">
               {personalInfo.tagline}
             </p>
           </div>
 
           {/* Quick Nav Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-slate-600 dark:text-slate-300">
-            <a href="#about" className="hover:text-indigo-400 transition-colors">{t.nav.about}</a>
-            <a href="#skills" className="hover:text-indigo-400 transition-colors">{t.nav.skills}</a>
-            <a href="#projects" className="hover:text-indigo-400 transition-colors">{t.nav.projects}</a>
-            <a href="#experience" className="hover:text-indigo-400 transition-colors">{t.nav.experience}</a>
-            <a href="#education" className="hover:text-indigo-400 transition-colors">{t.nav.education}</a>
-            <a href="#contact" className="hover:text-indigo-400 transition-colors">{t.nav.contact}</a>
+          <div className="flex flex-wrap items-center justify-center gap-6 font-ui text-[11px] sm:text-xs font-semibold tracking-[0.1em] uppercase text-[#81776B] dark:text-[#B7ADA0]">
+            <a href="#about" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.about}</a>
+            <a href="#skills" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.skills}</a>
+            <a href="#projects" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.projects}</a>
+            <a href="#experience" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.experience}</a>
+            <a href="#education" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.education}</a>
+            <a href="#contact" className="hover:text-[#B59662] dark:hover:text-[#C6A878] transition-colors">{t.nav.contact}</a>
           </div>
 
           {/* Social Icons & Back to Top */}
@@ -55,7 +55,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-indigo-500/50 transition-colors"
+              className="p-2.5 rounded-xl bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#B59662] dark:hover:text-[#C6A878] hover:border-[#B59662]/50 dark:hover:border-[#C6A878]/50 transition-colors shadow-sm"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
@@ -64,7 +64,7 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-indigo-500/50 transition-colors"
+              className="p-2.5 rounded-xl bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#B59662] dark:hover:text-[#C6A878] hover:border-[#B59662]/50 dark:hover:border-[#C6A878]/50 transition-colors shadow-sm"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function Footer() {
               href={personalInfo.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-indigo-500/50 transition-colors"
+              className="p-2.5 rounded-xl bg-[#FFFFFF] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#B59662] dark:hover:text-[#C6A878] hover:border-[#B59662]/50 dark:hover:border-[#C6A878]/50 transition-colors shadow-sm"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
@@ -81,7 +81,7 @@ export default function Footer() {
 
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 hover:text-white transition-colors"
+              className="p-2.5 rounded-xl bg-[#B59662]/15 hover:bg-[#B59662] dark:hover:bg-[#C6A878] border border-[#B59662]/30 text-[#B59662] dark:text-[#C6A878] hover:text-white dark:hover:text-[#1D1C1A] transition-colors"
               aria-label="Back to Top"
             >
               <ArrowUp className="w-4 h-4" />
@@ -91,10 +91,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright Row */}
-        <div className="pt-8 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-          <p>© {new Date().getFullYear()} Azzahra Attaqina. All rights reserved.</p>
+        <div className="pt-8 border-t border-[#E8E1D7] dark:border-[#403B34] flex flex-col sm:flex-row items-center justify-between gap-4 font-ui text-[11px] tracking-[0.04em] text-[#81776B] dark:text-[#B7ADA0]">
+          <p>© {new Date().getFullYear()} Azzahra Attaqina. {t.footer.copyright}</p>
           <p className="flex items-center gap-1">
-            Built with Next.js & Tailwind CSS
+            {t.footer.builtWith}
           </p>
         </div>
 

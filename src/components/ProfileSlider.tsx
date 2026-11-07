@@ -72,7 +72,7 @@ export default function ProfileSlider({
             onClick={() => setImageIndex(index)}
             aria-label={`Go to photo ${index + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
-              index === imageIndex ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/75"
+              index === imageIndex ? "w-6 bg-[#B59662] dark:bg-[#C6A878]" : "w-2 bg-white/50 hover:bg-white/75"
             }`}
           />
         ))}

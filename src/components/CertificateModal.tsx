@@ -102,7 +102,7 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
     <AnimatePresence>
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-slate-500/40 dark:bg-slate-950/80 backdrop-blur-md"
+        className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-black/60 backdrop-blur-md"
         onClick={onClose}
       >
         {/* Wrapper min-h-full + m-auto: tetap ter-center saat konten pendek,
@@ -114,33 +114,33 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
           exit={{ opacity: 0, scale: 0.95, y: 16 }}
           transition={{ duration: 0.25 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-xl m-auto bg-white dark:bg-[#0d121f] border border-indigo-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 my-8"
+          className="relative w-full max-w-xl m-auto bg-[#FFFFFF] dark:bg-[#292724] border border-[#B59662]/40 dark:border-[#C6A878]/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 my-8"
         >
           {/* Close button */}
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-[#F0EBE3] dark:bg-[#1D1C1A] border border-[#E8E1D7] dark:border-[#403B34] text-[#81776B] dark:text-[#B7ADA0] hover:text-[#242321] dark:hover:text-[#F5F1E9] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Certificate Badge Header */}
-          <div className="flex items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-5 pr-10">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-indigo-600 p-[1px] flex items-center justify-center shadow-lg shadow-amber-500/20 shrink-0">
-              <div className="w-full h-full bg-white dark:bg-[#0d121f] rounded-[15px] flex items-center justify-center">
-                <Award className="w-7 h-7 text-amber-600 dark:text-amber-400" />
+          <div className="flex items-center gap-4 border-b border-[#E8E1D7] dark:border-[#403B34] pb-5 pr-10">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#B59662] to-[#9E8050] dark:from-[#C6A878] dark:to-[#B59662] p-[1px] flex items-center justify-center shadow-lg shadow-[#B59662]/20 shrink-0">
+              <div className="w-full h-full bg-[#FFFFFF] dark:bg-[#292724] rounded-[15px] flex items-center justify-center">
+                <Award className="w-7 h-7 text-[#B59662] dark:text-[#C6A878]" />
               </div>
             </div>
 
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-xs uppercase tracking-wider font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-xs uppercase tracking-wider font-bold text-[#B59662] dark:text-[#C6A878]">
                   {t.certificateModal.verifiedBadge}
                 </span>
                 <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               </div>
-              <h3 className="text-xl font-display font-bold text-slate-900 dark:text-white mt-0.5 leading-snug">
+              <h3 className="text-xl font-display font-bold text-[#242321] dark:text-[#F5F1E9] mt-0.5 leading-snug">
                 {cert.title}
               </h3>
             </div>
@@ -149,20 +149,18 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
           {/* Image Slider */}
           {hasSlider && (
             <div className="space-y-3">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group">
-                <div className="relative w-full aspect-[3/4] max-h-[480px] bg-slate-200 dark:bg-slate-950">
+              <div className="relative rounded-2xl overflow-hidden border border-[#E8E1D7] dark:border-[#403B34] bg-[#F8F6F1] dark:bg-[#1D1C1A] group">
+                <div className="relative w-full aspect-[3/4] max-h-[480px] bg-[#E8E1D7]/50 dark:bg-[#1D1C1A]">
                   {isActiveFailed || !activeSrc ? (
                     <div className="w-full h-full min-h-[280px] flex flex-col items-center justify-center gap-3 p-6 text-center">
-                      <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                        <ImageOff className="w-8 h-8 text-slate-500" />
+                      <div className="p-4 rounded-2xl bg-[#F0EBE3] dark:bg-[#292724] border border-[#E8E1D7] dark:border-[#403B34]">
+                        <ImageOff className="w-8 h-8 text-[#81776B]" />
                       </div>
-                      <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">
-                        Foto tidak ditemukan
+                      <p className="text-sm font-semibold text-[#242321] dark:text-[#F5F1E9]">
+                        {t.certificateModal.photoNotFound}
                       </p>
-                      <p className="text-[11px] text-slate-500 leading-relaxed break-all">
-                        Pastikan file ada di <span className="text-slate-500 dark:text-slate-400 font-mono">public{activeSrc ?? ""}</span>
-                        <br />
-                        (cek nama file & huruf besar/kecil, lalu restart dev server)
+                      <p className="text-[11px] text-[#81776B] dark:text-[#B7ADA0] leading-relaxed break-all">
+                        {t.certificateModal.checkFile} <span className="text-[#B59662] dark:text-[#C6A878] font-mono">public{activeSrc ?? ""}</span>
                       </p>
                     </div>
                   ) : (
@@ -195,15 +193,15 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                     <>
                       <button
                         onClick={goPrev}
-                        aria-label="Foto sebelumnya"
-                        className="absolute left-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/85 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all backdrop-blur"
+                        aria-label={t.education.prevPhoto}
+                        className="absolute left-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#1D1C1A] opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all backdrop-blur"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={goNext}
-                        aria-label="Foto berikutnya"
-                        className="absolute right-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/85 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all backdrop-blur"
+                        aria-label={t.education.nextPhoto}
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#1D1C1A] opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all backdrop-blur"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -211,13 +209,13 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                   )}
 
                   {/* Counter + fullscreen */}
-                  <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-full bg-white/85 dark:bg-slate-950/75 border border-slate-300 dark:border-slate-700/60 text-[11px] font-semibold text-slate-900 dark:text-white backdrop-blur">
+                  <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[11px] font-semibold text-[#242321] dark:text-[#F5F1E9] backdrop-blur">
                     {activeIndex + 1} / {images.length}
                   </div>
                   <button
                     onClick={() => setIsFullscreen(true)}
                     aria-label="Perbesar"
-                    className="absolute bottom-2.5 right-2.5 p-2 rounded-full bg-white/85 dark:bg-slate-950/75 border border-slate-300 dark:border-slate-700/60 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 backdrop-blur"
+                    className="absolute bottom-2.5 right-2.5 p-2 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#1D1C1A] backdrop-blur"
                   >
                     <Expand className="w-4 h-4" />
                   </button>
@@ -235,8 +233,8 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                         aria-label={`Ke foto ${idx + 1}`}
                         className={`h-1.5 rounded-full transition-all ${
                           idx === activeIndex
-                            ? "w-7 bg-amber-400"
-                            : "w-1.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-500"
+                            ? "w-7 bg-[#B59662] dark:bg-[#C6A878]"
+                            : "w-1.5 bg-[#E8E1D7] dark:bg-[#403B34] hover:bg-[#B59662]/50"
                         }`}
                       />
                     ))}
@@ -251,17 +249,17 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                   <button
                     key={src + idx}
                     onClick={() => setActiveIndex(idx)}
-                    className={`relative rounded-xl overflow-hidden border-2 transition-all aspect-[3/4] max-h-32 w-full bg-slate-100 dark:bg-slate-900 ${
+                    className={`relative rounded-xl overflow-hidden border-2 transition-all aspect-[3/4] max-h-32 w-full bg-[#F0EBE3] dark:bg-[#1D1C1A] ${
                       idx === activeIndex
-                        ? "border-amber-400 shadow-lg shadow-amber-500/20"
-                        : "border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 opacity-70 hover:opacity-100"
+                        ? "border-[#B59662] dark:border-[#C6A878] shadow-md shadow-[#B59662]/20"
+                        : "border-[#E8E1D7] dark:border-[#403B34] hover:border-[#B59662]/50 opacity-70 hover:opacity-100"
                     }`}
                   >
                     {isFailed ? (
                       <span className="w-full h-full flex flex-col items-center justify-center gap-1.5 p-2 text-center">
-                        <ImageOff className="w-5 h-5 text-slate-600" />
-                        <span className="text-[10px] text-slate-500 leading-tight break-all">
-                          Foto {idx + 1} tidak ditemukan
+                        <ImageOff className="w-5 h-5 text-[#81776B]" />
+                        <span className="text-[10px] text-[#81776B] leading-tight break-all">
+                          {t.certificateModal.photoNotFound} ({idx + 1})
                         </span>
                       </span>
                     ) : (
@@ -279,37 +277,37 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                 })}
               </div>
 
-              <p className="text-center text-[11px] text-slate-500">
-                Geser / klik panah / klik thumbnail untuk melihat foto lainnya
+              <p className="text-center text-[11px] text-[#81776B] dark:text-[#B7ADA0]">
+                {t.certificateModal.sliderHint}
               </p>
             </div>
           )}
 
           {/* Details */}
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3 text-xs bg-slate-100 dark:bg-slate-900/90 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div className="grid grid-cols-2 gap-3 text-xs bg-[#F0EBE3] dark:bg-[#1D1C1A] p-4 rounded-2xl border border-[#E8E1D7] dark:border-[#403B34]">
               <div>
-                <span className="text-slate-500 dark:text-slate-400 block">{t.certificateModal.issuer}</span>
-                <span className="text-slate-900 dark:text-white font-semibold">{cert.issuer}</span>
+                <span className="text-[#81776B] dark:text-[#B7ADA0] block">{t.certificateModal.issuer}</span>
+                <span className="text-[#242321] dark:text-[#F5F1E9] font-semibold">{cert.issuer}</span>
               </div>
               <div>
-                <span className="text-slate-500 dark:text-slate-400 block">{t.certificateModal.year}</span>
-                <span className="text-slate-900 dark:text-white font-semibold">{cert.year}</span>
+                <span className="text-[#81776B] dark:text-[#B7ADA0] block">{t.certificateModal.year}</span>
+                <span className="text-[#242321] dark:text-[#F5F1E9] font-semibold">{cert.year}</span>
               </div>
             </div>
 
-            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+            <p className="text-[#81776B] dark:text-[#B7ADA0] text-xs sm:text-sm leading-relaxed">
               {cert.description}
             </p>
 
             {/* Validated Skills */}
             <div className="space-y-2">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-indigo-700 dark:text-indigo-300">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-[#B59662] dark:text-[#C6A878]">
                 {t.certificateModal.skillsValidatedTitle}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {cert.skillsValidated.map((skill, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                  <div key={idx} className="flex items-center gap-2 text-xs text-[#81776B] dark:text-[#B7ADA0]">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <span>{skill}</span>
                   </div>
@@ -319,13 +317,13 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
           </div>
 
           {/* Modal Footer */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3">
-            <span className="text-xs text-slate-500 dark:text-slate-400">
-              Status: Valid & Terverifikasi {cert.id === "bnsp-jwd-2025" && "BNSP"}
+          <div className="pt-4 border-t border-[#E8E1D7] dark:border-[#403B34] flex items-center justify-between gap-3">
+            <span className="text-xs text-[#81776B] dark:text-[#B7ADA0]">
+              {t.certificateModal.verifiedStatus} {cert.id === "bnsp-jwd-2025" && "BNSP"}
             </span>
             <button
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-colors shrink-0"
+              className="px-5 py-2.5 rounded-xl bg-[#B59662] hover:bg-[#9E8050] dark:bg-[#C6A878] dark:hover:bg-[#D8BC8C] text-white font-medium text-xs transition-colors shrink-0 shadow-sm"
             >
               {t.certificateModal.closeButton}
             </button>
@@ -342,12 +340,12 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsFullscreen(false)}
-            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur dark flex items-center justify-center p-4"
+            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur flex items-center justify-center p-4"
           >
             <button
               onClick={() => setIsFullscreen(false)}
-              aria-label="Tutup fullscreen"
-              className="absolute top-4 right-4 p-2.5 rounded-full bg-white/10 border border-white/20 text-slate-900 dark:text-white hover:bg-white/20"
+              aria-label={t.certificateModal.closeFullscreen}
+              className="absolute top-4 right-4 p-2.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20"
             >
               <X className="w-6 h-6" />
             </button>
@@ -358,8 +356,8 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                     e.stopPropagation();
                     goPrev();
                   }}
-                  aria-label="Foto sebelumnya"
-                  className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-slate-900 dark:text-white hover:bg-white/20"
+                  aria-label={t.education.prevPhoto}
+                  className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
@@ -368,8 +366,8 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                     e.stopPropagation();
                     goNext();
                   }}
-                  aria-label="Foto berikutnya"
-                  className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-slate-900 dark:text-white hover:bg-white/20"
+                  aria-label={t.education.nextPhoto}
+                  className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
@@ -380,9 +378,9 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
                 onClick={(e) => e.stopPropagation()}
                 className="flex flex-col items-center justify-center gap-3 p-8 text-center max-w-sm rounded-2xl border border-white/10 bg-white/5"
               >
-                <ImageOff className="w-10 h-10 text-slate-500 dark:text-slate-400" />
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">Foto tidak ditemukan</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 break-all">public{activeSrc ?? ""}</p>
+                <ImageOff className="w-10 h-10 text-slate-400" />
+                <p className="text-sm font-semibold text-white">{t.certificateModal.photoNotFound}</p>
+                <p className="text-xs text-slate-400 break-all">{t.certificateModal.checkFile} public{activeSrc ?? ""}</p>
               </div>
             ) : (
             <motion.img
@@ -398,7 +396,7 @@ export default function CertificateModal({ cert, onClose, initialIndex = 0 }: Pr
               draggable={false}
             />
             )}
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-900 dark:text-white text-xs font-semibold">
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
               {activeIndex + 1} / {images.length}
             </div>
           </motion.div>

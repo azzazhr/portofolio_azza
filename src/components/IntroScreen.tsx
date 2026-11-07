@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
-/* ---------- Starfield canvas (particles + shooting stars) ---------- */
+/* ---------- Starfield canvas (warm particles + shooting stars) ---------- */
 function Starfield({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: number }> }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -40,8 +40,8 @@ function Starfield({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: nu
       stars = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.3,
-        s: Math.random() * 0.25 + 0.05,
+        r: Math.random() * 1.5 + 0.3,
+        s: Math.random() * 0.2 + 0.04,
         tw: Math.random() * 2 + 0.6,
         ph: Math.random() * Math.PI * 2,
       }));
@@ -67,8 +67,8 @@ function Starfield({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: nu
     const tick = () => {
       t += 0.016;
       ctx.clearRect(0, 0, w, h);
-      const px = (mouse.current.x - 0.5) * 18;
-      const py = (mouse.current.y - 0.5) * 18;
+      const px = (mouse.current.x - 0.5) * 16;
+      const py = (mouse.current.y - 0.5) * 16;
 
       for (const st of stars) {
         st.y += st.s;
@@ -76,10 +76,10 @@ function Starfield({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: nu
           st.y = -4;
           st.x = Math.random() * w;
         }
-        const alpha = 0.35 + Math.abs(Math.sin(t * st.tw + st.ph)) * 0.65;
+        const alpha = 0.3 + Math.abs(Math.sin(t * st.tw + st.ph)) * 0.65;
         ctx.beginPath();
         ctx.arc(st.x + px * st.r * 0.4, st.y + py * st.r * 0.4, st.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(165, 243, 252, ${alpha * 0.9})`;
+        ctx.fillStyle = `rgba(245, 241, 233, ${alpha * 0.8})`;
         ctx.fill();
       }
 
@@ -92,10 +92,10 @@ function Starfield({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: nu
         const fade = 1 - m.life / m.max;
         const grad = ctx.createLinearGradient(m.x, m.y, m.x + 70, m.y - 35);
         grad.addColorStop(0, `rgba(255,255,255,${0.9 * fade})`);
-        grad.addColorStop(0.3, `rgba(103,232,249,${0.5 * fade})`);
-        grad.addColorStop(1, "rgba(103,232,249,0)");
+        grad.addColorStop(0.3, `rgba(198,168,120,${0.5 * fade})`);
+        grad.addColorStop(1, "rgba(198,168,120,0)");
         ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.6;
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(m.x, m.y);
         ctx.lineTo(m.x + 70, m.y - 35);
@@ -199,7 +199,7 @@ export default function IntroScreen() {
     const nx = (e.clientX - r.left) / r.width;
     const ny = (e.clientY - r.top) / r.height;
     mouse.current = { x: nx, y: ny };
-    setParallax({ x: (nx - 0.5) * 22, y: (ny - 0.5) * 22 });
+    setParallax({ x: (nx - 0.5) * 20, y: (ny - 0.5) * 20 });
   };
 
   if (!mounted) return null;
@@ -229,39 +229,39 @@ export default function IntroScreen() {
           initial={{ opacity: 1 }}
           animate={leaving ? { opacity: 1 } : { opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden text-white"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden text-[#F5F1E9]"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 50% 0%, #0b3a5e 0%, #07233f 28%, #040f22 58%, #01060f 100%)",
+              "radial-gradient(ellipse 90% 70% at 50% 0%, #292724 0%, #24221F 28%, #1D1C1A 65%, #151413 100%)",
           }}
           onMouseMove={onMouseMove}
           onClick={handleEnter}
         >
-          {/* ===== Aurora blobs (parallax) ===== */}
+          {/* ===== Aurora blobs (parallax - elegant warm gold) ===== */}
           <motion.div
             animate={{ x: parallax.x, y: parallax.y }}
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
             className="absolute inset-0 pointer-events-none"
           >
             <motion.div
-              animate={{ rotate: 360, scale: [1, 1.25, 1] }}
+              animate={{ rotate: 360, scale: [1, 1.2, 1] }}
               transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-[15%] -left-[8%] w-[58vw] h-[58vw] rounded-full bg-cyan-400/20 blur-[110px]"
+              className="absolute -top-[15%] -left-[8%] w-[58vw] h-[58vw] rounded-full bg-[#C6A878]/10 blur-[120px]"
             />
             <motion.div
-              animate={{ rotate: -360, scale: [1, 1.3, 1] }}
+              animate={{ rotate: -360, scale: [1, 1.25, 1] }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-[18%] -right-[8%] w-[52vw] h-[52vw] rounded-full bg-indigo-600/30 blur-[110px]"
+              className="absolute -bottom-[18%] -right-[8%] w-[52vw] h-[52vw] rounded-full bg-[#B59662]/8 blur-[120px]"
             />
             <motion.div
-              animate={{ x: [0, 70, 0], y: [0, -70, 0] }}
+              animate={{ x: [0, 60, 0], y: [0, -60, 0] }}
               transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[22%] right-[12%] w-[34vw] h-[34vw] rounded-full bg-fuchsia-500/15 blur-[90px]"
+              className="absolute top-[22%] right-[12%] w-[34vw] h-[34vw] rounded-full bg-[#D8BC8C]/6 blur-[100px]"
             />
             <motion.div
-              animate={{ x: [0, -60, 0], y: [0, 60, 0] }}
+              animate={{ x: [0, -50, 0], y: [0, 50, 0] }}
               transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-[18%] left-[8%] w-[30vw] h-[30vw] rounded-full bg-sky-500/15 blur-[80px]"
+              className="absolute bottom-[18%] left-[8%] w-[30vw] h-[30vw] rounded-full bg-[#9E8050]/6 blur-[90px]"
             />
           </motion.div>
 
@@ -269,19 +269,19 @@ export default function IntroScreen() {
           <Starfield mouse={mouse} />
 
           {/* grid + vignette + noise */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_62%_at_50%_45%,#000_55%,transparent_100%)] pointer-events-none" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_55%,rgba(0,0,0,0.55)_100%)]" />
-          <div className="absolute inset-0 opacity-[0.05] pointer-events-none intro-noise" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#E8E1D708_1px,transparent_1px),linear-gradient(to_bottom,#E8E1D708_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_62%_at_50%_45%,#000_55%,transparent_100%)] pointer-events-none" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_55%,rgba(0,0,0,0.6)_100%)]" />
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none intro-noise" />
 
           {/* ===== Top bar ===== */}
           <motion.div
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-            className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-5 sm:px-8 py-4 text-[11px] sm:text-xs font-mono tracking-[0.25em] uppercase text-slate-300/80"
+            className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-5 sm:px-8 py-4 text-[11px] sm:text-xs font-mono tracking-[0.25em] uppercase text-[#B7ADA0]"
           >
             <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C6A878] animate-pulse" />
               Portfolio © 2026
             </span>
             <span className="hidden sm:block">Malang — ID</span>
@@ -294,9 +294,9 @@ export default function IntroScreen() {
                   setIsLoaded(true);
                 }
               }}
-              className="group flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 backdrop-blur-md hover:bg-white/15 hover:border-white/30 transition-all"
+              className="group flex items-center gap-1.5 rounded-full border border-[#403B34] bg-[#292724]/70 px-3 py-1.5 backdrop-blur-md hover:bg-[#292724] hover:border-[#C6A878]/50 transition-all text-[#F5F1E9]"
             >
-              <SkipForward className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <SkipForward className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#C6A878]" />
               {isID ? "Lewati" : "Skip"}
             </button>
           </motion.div>
@@ -322,7 +322,7 @@ export default function IntroScreen() {
                 className="absolute -inset-4 rounded-full"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent 0%, rgba(34,211,238,0.7) 12%, transparent 25%, transparent 50%, rgba(168,85,247,0.7) 62%, transparent 75%, transparent 100%)",
+                    "conic-gradient(from 0deg, transparent 0%, rgba(198,168,120,0.6) 15%, transparent 30%, transparent 60%, rgba(216,188,140,0.6) 75%, transparent 100%)",
                   mask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
                   WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
                   maskComposite: "exclude",
@@ -333,7 +333,7 @@ export default function IntroScreen() {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-8 rounded-full border border-dashed border-white/15"
+                className="absolute -inset-8 rounded-full border border-dashed border-[#403B34]"
               />
               {/* orbiting dots */}
               <motion.div
@@ -341,20 +341,20 @@ export default function IntroScreen() {
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-4"
               >
-                <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
+                <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-[#C6A878] shadow-[0_0_10px_rgba(198,168,120,0.8)]" />
               </motion.div>
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-4"
               >
-                <span className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-fuchsia-400 shadow-[0_0_12px_rgba(232,121,249,0.9)]" />
+                <span className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-[#D8BC8C] shadow-[0_0_10px_rgba(216,188,140,0.8)]" />
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_0_50px_rgba(34,211,238,0.35)] backdrop-blur-xl"
+                className="absolute inset-0 overflow-hidden rounded-3xl border border-[#403B34] bg-[#292724]/90 shadow-[0_0_40px_rgba(198,168,120,0.2)] backdrop-blur-xl"
                 style={{ position: "absolute", inset: 0 }}
               >
                 <Image
@@ -362,7 +362,7 @@ export default function IntroScreen() {
                   alt="Logo"
                   width={128}
                   height={128}
-                  className="drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]"
+                  className="drop-shadow-[0_0_16px_rgba(198,168,120,0.4)]"
                   style={{ width: "100%", height: "100%", objectFit: "contain", padding: 8 }}
                   priority
                 />
@@ -370,7 +370,7 @@ export default function IntroScreen() {
                 <motion.div
                   animate={{ x: ["-120%", "220%"] }}
                   transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
-                  className="absolute inset-y-0 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                  className="absolute inset-y-0 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                 />
               </motion.div>
             </motion.div>
@@ -391,8 +391,8 @@ export default function IntroScreen() {
                     char === " " ? "w-3 sm:w-5" : ""
                   } ${
                     i > 7
-                      ? "bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-200 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.35)]"
-                      : "text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.6)]"
+                      ? "bg-gradient-to-r from-[#C6A878] via-[#D8BC8C] to-[#F5F1E9] bg-clip-text text-transparent drop-shadow-[0_0_16px_rgba(198,168,120,0.25)]"
+                      : "text-[#F5F1E9] drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)]"
                   }`}
                 >
                   {char}
@@ -405,11 +405,11 @@ export default function IntroScreen() {
               initial={{ opacity: 0, filter: "blur(10px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.9, delay: 1 }}
-              className="mt-3 flex h-7 items-center justify-center gap-3 text-xs sm:text-base font-mono tracking-[0.25em] uppercase text-slate-300"
+              className="mt-3 flex h-7 items-center justify-center gap-3 text-xs sm:text-base font-mono tracking-[0.25em] uppercase text-[#B7ADA0]"
             >
-              <span className="hidden sm:block h-px w-10 bg-gradient-to-r from-transparent to-slate-500" />
-              <span className="text-cyan-200">Web Developer</span>
-              <span className="hidden sm:block h-px w-10 bg-gradient-to-l from-transparent to-slate-500" />
+              <span className="hidden sm:block h-px w-10 bg-gradient-to-r from-transparent to-[#403B34]" />
+              <span className="text-[#C6A878]">Web Developer</span>
+              <span className="hidden sm:block h-px w-10 bg-gradient-to-l from-transparent to-[#403B34]" />
             </motion.div>
 
             {/* Loader / Button */}
@@ -425,17 +425,17 @@ export default function IntroScreen() {
                   >
                     {/* big counter */}
                     <div className="mb-3 flex items-end justify-between w-full">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-slate-400">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#B7ADA0]">
                         {stepLabel}
                       </span>
-                      <span className="font-display text-3xl font-extrabold tabular-nums bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
+                      <span className="font-display text-3xl font-extrabold tabular-nums bg-gradient-to-r from-[#C6A878] to-[#F5F1E9] bg-clip-text text-transparent">
                         {displayProgress}
                         <span className="text-base">%</span>
                       </span>
                     </div>
-                    <div className="relative h-2 w-full overflow-hidden rounded-full bg-white/10 border border-white/10">
+                    <div className="relative h-2 w-full overflow-hidden rounded-full bg-[#292724] border border-[#403B34]">
                       <motion.div
-                        className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-fuchsia-400 shadow-[0_0_18px_rgba(34,211,238,0.7)]"
+                        className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#B59662] via-[#C6A878] to-[#D8BC8C] shadow-[0_0_14px_rgba(198,168,120,0.5)]"
                         initial={{ width: "0%" }}
                         animate={{ width: `${displayProgress}%` }}
                         transition={{ ease: "easeOut", duration: 0.3 }}
@@ -443,7 +443,7 @@ export default function IntroScreen() {
                       <motion.div
                         animate={{ x: ["-100%", "300%"] }}
                         transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
-                        className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                        className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/50 to-transparent"
                       />
                     </div>
                     {/* step dots */}
@@ -455,8 +455,8 @@ export default function IntroScreen() {
                             key={i}
                             className={`h-1.5 rounded-full transition-all duration-500 ${
                               i <= activeIdx
-                                ? "w-6 bg-gradient-to-r from-cyan-400 to-fuchsia-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"
-                                : "w-1.5 bg-white/20"
+                                ? "w-6 bg-gradient-to-r from-[#B59662] to-[#C6A878] shadow-[0_0_8px_rgba(198,168,120,0.6)]"
+                                : "w-1.5 bg-[#403B34]"
                             }`}
                           />
                         );
@@ -476,37 +476,37 @@ export default function IntroScreen() {
                     className="flex flex-col items-center gap-3"
                   >
                     <motion.button
-                      whileHover={{ scale: 1.06 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.96 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         handleEnter();
                       }}
-                      className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-8 sm:px-10 py-4 font-bold text-sm sm:text-base text-slate-900 shadow-[0_0_50px_rgba(34,211,238,0.45)] transition-shadow hover:shadow-[0_0_70px_rgba(34,211,238,0.65)]"
+                      className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#F5F1E9] px-8 sm:px-10 py-4 font-bold text-sm sm:text-base text-[#1D1C1A] shadow-[0_0_40px_rgba(198,168,120,0.25)] transition-shadow hover:shadow-[0_0_60px_rgba(198,168,120,0.4)]"
                     >
                       {/* gradient border glow */}
-                      <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-cyan-400 via-sky-400 to-fuchsia-400 opacity-100 [mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)] [mask-composite:exclude]" />
+                      <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-[#B59662] via-[#C6A878] to-[#D8BC8C] opacity-100 [mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)] [mask-composite:exclude]" />
                       {/* shine */}
                       <motion.span
                         animate={{ x: ["-150%", "350%"] }}
                         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute inset-y-0 w-1/4 rotate-12 bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent"
+                        className="absolute inset-y-0 w-1/4 rotate-12 bg-gradient-to-r from-transparent via-[#C6A878]/40 to-transparent"
                       />
-                      <span className="relative z-10">
+                      <span className="relative z-10 font-display">
                         {isID ? "Jelajahi Portofolio" : "Explore Portofolio"}
                       </span>
-                      <span className="relative z-10 grid h-8 w-8 place-items-center rounded-full bg-slate-900 text-white transition-transform group-hover:translate-x-1">
-                        <ArrowRight className="h-4 w-4" />
+                      <span className="relative z-10 grid h-8 w-8 place-items-center rounded-full bg-[#1D1C1A] text-[#F5F1E9] transition-transform group-hover:translate-x-1">
+                        <ArrowRight className="h-4 w-4 text-[#C6A878]" />
                       </span>
                       {/* ping */}
-                      <span className="absolute inset-0 rounded-full animate-ping bg-cyan-400/20" />
+                      <span className="absolute inset-0 rounded-full animate-ping bg-[#C6A878]/20" />
                     </motion.button>
                     <motion.p
                       animate={{ y: [0, 6, 0], opacity: [0.6, 1, 0.6] }}
                       transition={{ duration: 1.8, repeat: Infinity }}
-                      className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono tracking-widest uppercase text-slate-400"
+                      className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#B7ADA0]"
                     >
-                      <MousePointerClick className="h-3.5 w-3.5" />
+                      <MousePointerClick className="h-3.5 w-3.5 text-[#C6A878]" />
                       {isID ? "Klik di mana saja / tekan Enter" : "Click anywhere / press Enter"}
                     </motion.p>
                   </motion.div>
@@ -520,19 +520,19 @@ export default function IntroScreen() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="absolute bottom-0 inset-x-0 z-10 overflow-hidden border-t border-white/10 bg-black/20 py-2.5 backdrop-blur-sm"
+            className="absolute bottom-0 inset-x-0 z-10 overflow-hidden border-t border-[#403B34] bg-[#1D1C1A]/80 py-2.5 backdrop-blur-sm"
           >
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-              className="flex w-max items-center gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.25em] uppercase text-slate-400"
+              className="flex w-max items-center gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.25em] uppercase text-[#B7ADA0]"
             >
               {Array.from({ length: 2 }).map((_, k) => (
                 <span key={k} className="flex items-center gap-8">
                   {Array.from({ length: 6 }).map((__, j) => (
                     <span key={j} className="flex items-center gap-8">
                       <span>Azzahra Attaqina</span>
-                      <span className="h-1 w-1 rounded-full bg-cyan-400" />
+                      <span className="h-1 w-1 rounded-full bg-[#C6A878]" />
                     </span>
                   ))}
                 </span>
@@ -548,15 +548,15 @@ export default function IntroScreen() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-                  className="absolute inset-x-0 bottom-0 top-[8%] rounded-t-[2.5rem] bg-gradient-to-b from-[#0d1526] to-[#050a14] border-t border-cyan-300/20 shadow-[0_-20px_80px_rgba(0,0,0,0.6)]"
+                  className="absolute inset-x-0 bottom-0 top-[8%] rounded-t-[2.5rem] bg-gradient-to-b from-[#24221F] to-[#1D1C1A] border-t border-[#C6A878]/30 shadow-[0_-20px_80px_rgba(0,0,0,0.7)]"
                 />
                 <motion.div
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.7, delay: 0.08, ease: [0.76, 0, 0.24, 1] }}
-                  className="absolute inset-x-0 bottom-0 top-[14%] rounded-t-[2rem] bg-gradient-to-b from-cyan-500/20 to-transparent backdrop-blur-xl border-t border-white/20 flex items-start justify-center pt-10"
+                  className="absolute inset-x-0 bottom-0 top-[14%] rounded-t-[2rem] bg-gradient-to-b from-[#C6A878]/15 to-transparent backdrop-blur-xl border-t border-[#C6A878]/30 flex items-start justify-center pt-10"
                 >
-                  <span className="font-mono text-xs tracking-[0.4em] uppercase text-cyan-200 animate-pulse">
+                  <span className="font-mono text-xs tracking-[0.4em] uppercase text-[#C6A878] animate-pulse">
                     {isID ? "Membuka…" : "Opening…"}
                   </span>
                 </motion.div>

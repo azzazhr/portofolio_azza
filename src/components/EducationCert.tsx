@@ -21,22 +21,22 @@ export default function EducationCert() {
   };
 
   return (
-    <section id="education" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080b11] overflow-hidden scroll-mt-20">
-      {/* Background glow */}
-      <div className="absolute top-1/3 left-10 w-[450px] h-[450px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="education" className="py-16 sm:py-24 relative bg-[#F0EBE3] dark:bg-[#24221F] overflow-hidden scroll-mt-20">
+      {/* Background glow (subtle gold) */}
+      <div className="absolute top-1/3 left-10 w-[450px] h-[450px] bg-[#B59662]/4 dark:bg-[#C6A878]/4 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800/60 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B59662]/10 dark:bg-[#C6A878]/10 border border-[#B59662]/30 dark:border-[#C6A878]/30 text-xs font-semibold uppercase tracking-wider text-[#B59662] dark:text-[#C6A878]">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>{t.education.sectionTag}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[#242321] dark:text-[#F5F1E9] tracking-tight">
             {t.education.sectionTitle}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg">
+          <p className="text-[#81776B] dark:text-[#B7ADA0] text-base sm:text-lg">
             {t.education.subTitle}
           </p>
         </div>
@@ -45,8 +45,8 @@ export default function EducationCert() {
           
           {/* Top Section: Education List */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-6">
-              <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            <h3 className="text-2xl font-display font-bold text-[#242321] dark:text-[#F5F1E9] flex items-center gap-2 mb-6">
+              <GraduationCap className="w-6 h-6 text-[#B59662] dark:text-[#C6A878]" />
               <span>{t.education.educationTitle}</span>
             </h3>
 
@@ -58,26 +58,26 @@ export default function EducationCert() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="glass-panel glass-panel-hover p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4"
+                  className="glass-panel glass-panel-hover p-6 rounded-3xl border border-[#E8E1D7] dark:border-[#403B34] space-y-4 shadow-sm"
                 >
                   <div className="flex items-start justify-between flex-wrap gap-2">
                     <div>
-                      <h4 className="text-xl font-display font-bold text-slate-900 dark:text-white">
+                      <h4 className="text-xl font-display font-bold text-[#242321] dark:text-[#F5F1E9]">
                         {edu.institution}
                       </h4>
-                      <span className="text-indigo-400 text-sm font-semibold">
+                      <span className="text-[#B59662] dark:text-[#C6A878] text-sm font-semibold">
                         {edu.degree}
                       </span>
                     </div>
-                    <span className="px-3.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-medium">
+                    <span className="px-3.5 py-1 rounded-full bg-[#B59662]/10 dark:bg-[#C6A878]/10 border border-[#B59662]/30 dark:border-[#C6A878]/30 text-[#B59662] dark:text-[#C6A878] text-xs font-medium">
                       {edu.period}
                     </span>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800/80">
+                  <div className="space-y-2 pt-2 border-t border-[#E8E1D7] dark:border-[#403B34]">
                     {edu.details.map((detail, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#81776B] dark:text-[#B7ADA0]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -89,8 +89,8 @@ export default function EducationCert() {
 
           {/* Bottom Section: Featured Certification Cards */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2 mb-8 text-center">
-              <Award className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            <h3 className="text-2xl font-display font-bold text-[#242321] dark:text-[#F5F1E9] flex items-center justify-center gap-2 mb-8 text-center">
+              <Award className="w-6 h-6 text-[#B59662] dark:text-[#C6A878]" />
               <span>{t.education.certTitle}</span>
             </h3>
 
@@ -133,23 +133,23 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="glass-panel p-6 sm:p-8 rounded-3xl border border-indigo-500/40 bg-gradient-to-b from-indigo-100 to-white dark:from-indigo-950/30 dark:to-[#0d121f] space-y-6 flex-1 flex flex-col justify-between"
+      className="glass-panel p-6 sm:p-8 rounded-3xl border border-[#B59662]/30 dark:border-[#C6A878]/30 space-y-6 flex-1 flex flex-col justify-between shadow-sm"
     >
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400">
+          <div className="p-3 rounded-2xl bg-[#B59662]/10 dark:bg-[#C6A878]/10 border border-[#B59662]/30 dark:border-[#C6A878]/30 text-[#B59662] dark:text-[#C6A878]">
             <ShieldCheck className="w-8 h-8" />
           </div>
-          <span className="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-wider">
+          <span className="px-3 py-1 rounded-full bg-[#B59662]/10 dark:bg-[#C6A878]/10 text-[#B59662] dark:text-[#C6A878] border border-[#B59662]/30 dark:border-[#C6A878]/30 text-xs font-bold uppercase tracking-wider">
             {cert.year}
           </span>
         </div>
 
         <div>
-          <span className="text-xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">
+          <span className="text-xs uppercase font-semibold tracking-wider text-[#81776B] dark:text-[#B7ADA0]">
             {cert.issuer}
           </span>
-          <h4 className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
+          <h4 className="text-2xl font-display font-bold text-[#242321] dark:text-[#F5F1E9] mt-1">
             {cert.title}
           </h4>
         </div>
@@ -157,11 +157,11 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
         {/* Mini slider preview */}
         {certImages.length > 0 && (
           <div className="space-y-2.5">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group">
+            <div className="relative rounded-2xl overflow-hidden border border-[#E8E1D7] dark:border-[#403B34] bg-[#F8F6F1] dark:bg-[#1D1C1A] group">
               <button
                 onClick={() => onOpenModal(cardIndex)}
-                className="block w-full aspect-[4/3] bg-slate-950 cursor-zoom-in"
-                aria-label="Buka pratinjau sertifikat"
+                className="block w-full aspect-[4/3] bg-[#242321] cursor-zoom-in"
+                aria-label={t.education.previewCert}
               >
                 <AnimatePresence mode="wait">
                   <motion.img
@@ -188,8 +188,8 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
                     onClick={() =>
                       setCardIndex((p) => (p - 1 + certImages.length) % certImages.length)
                     }
-                    aria-label="Foto sebelumnya"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/85 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 backdrop-blur"
+                    aria-label={t.education.prevPhoto}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#1D1C1A] backdrop-blur"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
@@ -197,15 +197,15 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
                     onClick={() =>
                       setCardIndex((p) => (p + 1) % certImages.length)
                     }
-                    aria-label="Foto berikutnya"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/85 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 backdrop-blur"
+                    aria-label={t.education.nextPhoto}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[#242321] dark:text-[#F5F1E9] hover:bg-[#F0EBE3] dark:hover:bg-[#1D1C1A] backdrop-blur"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </>
               )}
 
-              <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-white/85 dark:bg-slate-950/75 border border-slate-300 dark:border-slate-700/60 text-[11px] font-semibold text-slate-900 dark:text-white backdrop-blur">
+              <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-[#FFFFFF]/90 dark:bg-[#292724]/90 border border-[#E8E1D7] dark:border-[#403B34] text-[11px] font-semibold text-[#242321] dark:text-[#F5F1E9] backdrop-blur">
                 {cardIndex + 1} / {certImages.length}
               </div>
             </div>
@@ -219,8 +219,8 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
                     aria-label={`Ke foto ${idx + 1}`}
                     className={`h-1.5 rounded-full transition-all ${
                       idx === cardIndex
-                        ? "w-6 bg-amber-400"
-                        : "w-1.5 bg-slate-700 hover:bg-slate-500"
+                        ? "w-6 bg-[#B59662] dark:bg-[#C6A878]"
+                        : "w-1.5 bg-[#E8E1D7] dark:bg-[#403B34] hover:bg-[#B59662]/50"
                     }`}
                   />
                 ))}
@@ -229,19 +229,19 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
           </div>
         )}
 
-        <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
+        <p className="text-[#81776B] dark:text-[#B7ADA0] text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
           {cert.description}
         </p>
 
         <div className="space-y-2 pt-2">
-          <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider">
-            Kompetensi Teruji:
+          <span className="text-xs font-semibold text-[#B59662] dark:text-[#C6A878] uppercase tracking-wider">
+            {t.education.testedCompetencies}
           </span>
           <div className="flex flex-wrap gap-1.5">
             {cert.skillsValidated.map((skill) => (
               <span
                 key={skill}
-                className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-medium"
+                className="px-2.5 py-1 rounded-md bg-[#F0EBE3] dark:bg-[#1D1C1A] border border-[#E8E1D7] dark:border-[#403B34] text-[11px] text-[#81776B] dark:text-[#B7ADA0] font-medium"
               >
                 {skill}
               </span>
@@ -250,10 +250,10 @@ function CertCard({ cert, onOpenModal, t }: { cert: CertificationItem, onOpenMod
         </div>
       </div>
 
-      <div className="pt-6 border-t border-slate-200 dark:border-slate-800">
+      <div className="pt-6 border-t border-[#E8E1D7] dark:border-[#403B34]">
         <button
           onClick={() => onOpenModal(cardIndex)}
-          className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40"
+          className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#B59662] to-[#9E8050] hover:from-[#9E8050] hover:to-[#B59662] dark:from-[#C6A878] dark:to-[#B59662] dark:hover:from-[#D8BC8C] dark:hover:to-[#C6A878] text-white font-bold text-sm transition-all shadow-lg shadow-[#B59662]/20 hover:shadow-[#B59662]/35"
         >
           <Eye className="w-4 h-4" />
           <span>{t.education.viewCertificate}</span>

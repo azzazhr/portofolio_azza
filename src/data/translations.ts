@@ -11,6 +11,9 @@ export const translations = {
       education: "Pendidikan & Sertifikasi",
       contact: "Kontak",
       letsTalk: "Hubungi Saya",
+      portfolioSubtitle: "Portofolio",
+      openMenu: "Buka Menu",
+      closeMenu: "Tutup Menu",
     },
     hero: {
       availability: "Mari Berkenalan dan Berkolaborasi",
@@ -54,6 +57,8 @@ export const translations = {
       sectionTag: "KEAHLIAN & TEKNOLOGI",
       sectionTitle: "Stack Teknologi & Toolset",
       subTitle: "Jelajahi keahlian teknis dan instrumen yang biasa saya gunakan dalam proyek web development dan analisis data.",
+      filterAll: "Semua",
+      competencies: "Kompetensi",
     },
     projects: {
       sectionTag: "PORTOFOLIO PROYEK",
@@ -67,6 +72,10 @@ export const translations = {
       sourceCode: "Kode Source",
       ongoingBadge: "Dalam Pengembangan",
       completedBadge: "Selesai",
+      viewCode: "Lihat Kode",
+      viewDetails: "Detail Proyek",
+      technologiesUsed: "Teknologi Yang Diterapkan:",
+      viewGithub: "Lihat Repository GitHub",
     },
     experience: {
       sectionTag: "PENGALAMAN & REKAM JEJAK",
@@ -80,6 +89,10 @@ export const translations = {
       educationTitle: "Pendidikan Formal",
       certTitle: "Sertifikasi Kompetensi Profesional",
       viewCertificate: "Lihat Pratinjau Sertifikat",
+      testedCompetencies: "Kompetensi Teruji:",
+      prevPhoto: "Foto sebelumnya",
+      nextPhoto: "Foto berikutnya",
+      previewCert: "Buka pratinjau sertifikat",
     },
     certificateModal: {
       title: "Pratinjau Sertifikat BNSP",
@@ -90,6 +103,11 @@ export const translations = {
       descTitle: "Deskripsi Kompetensi",
       skillsValidatedTitle: "Unit Kompetensi Ter-validasi",
       closeButton: "Tutup Pratinjau",
+      verifiedStatus: "Status: Valid & Terverifikasi",
+      photoNotFound: "Foto tidak ditemukan",
+      checkFile: "Pastikan file ada di",
+      sliderHint: "Geser / klik panah / klik thumbnail untuk melihat foto lainnya",
+      closeFullscreen: "Tutup layar penuh",
     },
     contact: {
       sectionTag: "HUBUNGI SAYA",
@@ -120,6 +138,20 @@ export const translations = {
     footer: {
       copyright: "Hak Cipta Dilindungi.",
       backToTop: "Ke Atas",
+      builtWith: "Dibuat dengan Next.js & Tailwind CSS",
+    },
+    whatsapp: {
+      chat: "Chat WhatsApp",
+    },
+    theme: {
+      light: "Mode terang",
+      dark: "Mode gelap",
+      switchToLight: "Beralih ke mode terang",
+      switchToDark: "Beralih ke mode gelap",
+    },
+    lang: {
+      switchToId: "Beralih ke Bahasa Indonesia",
+      switchToEn: "Beralih ke Bahasa Inggris",
     }
   },
   en: {
@@ -132,6 +164,9 @@ export const translations = {
       education: "Education & Certs",
       contact: "Contact",
       letsTalk: "Let's Talk",
+      portfolioSubtitle: "Portfolio",
+      openMenu: "Open Menu",
+      closeMenu: "Close Menu",
     },
     hero: {
       availability: "Open for Work & Collaborations",
@@ -175,6 +210,8 @@ export const translations = {
       sectionTag: "SKILLS & TECHNOLOGIES",
       sectionTitle: "Tech Stack & Toolset",
       subTitle: "Explore the technical skills and instruments I use in web development and data analytics projects.",
+      filterAll: "All",
+      competencies: "Competencies",
     },
     projects: {
       sectionTag: "PROJECT PORTFOLIO",
@@ -188,6 +225,10 @@ export const translations = {
       sourceCode: "Source Code",
       ongoingBadge: "In Development",
       completedBadge: "Completed",
+      viewCode: "View Code",
+      viewDetails: "Project Details",
+      technologiesUsed: "Technologies Applied:",
+      viewGithub: "View GitHub Repository",
     },
     experience: {
       sectionTag: "EXPERIENCE & TRACK RECORD",
@@ -201,6 +242,10 @@ export const translations = {
       educationTitle: "Formal Education",
       certTitle: "Professional Competency Certification",
       viewCertificate: "Preview Certificate",
+      testedCompetencies: "Tested Competencies:",
+      prevPhoto: "Previous photo",
+      nextPhoto: "Next photo",
+      previewCert: "Preview certificate",
     },
     certificateModal: {
       title: "BNSP Certificate Preview",
@@ -211,6 +256,11 @@ export const translations = {
       descTitle: "Competency Description",
       skillsValidatedTitle: "Validated Competency Units",
       closeButton: "Close Preview",
+      verifiedStatus: "Status: Valid & Verified",
+      photoNotFound: "Photo not found",
+      checkFile: "Make sure file exists in",
+      sliderHint: "Swipe / click arrows / click thumbnail to view other photos",
+      closeFullscreen: "Close fullscreen",
     },
     contact: {
       sectionTag: "CONTACT ME",
@@ -241,6 +291,20 @@ export const translations = {
     footer: {
       copyright: "All Rights Reserved.",
       backToTop: "Back to Top",
+      builtWith: "Built with Next.js & Tailwind CSS",
+    },
+    whatsapp: {
+      chat: "Chat via WhatsApp",
+    },
+    theme: {
+      light: "Light mode",
+      dark: "Dark mode",
+      switchToLight: "Switch to light mode",
+      switchToDark: "Switch to dark mode",
+    },
+    lang: {
+      switchToId: "Switch to Indonesian",
+      switchToEn: "Switch to English",
     }
   }
 };

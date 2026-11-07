@@ -1,18 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Cormorant_Garamond, DM_Sans, Manrope } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 
+/* Preserved exclusively for the approved Hero design */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const outfit = Outfit({
+/* Primary display / editorial voice */
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+/* Secondary body copy */
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+/* Navigation, labels, buttons & metadata */
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -22,8 +40,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f1f5f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#080b11" },
+    { media: "(prefers-color-scheme: light)", color: "#F8F6F1" },
+    { media: "(prefers-color-scheme: dark)", color: "#1D1C1A" },
   ],
 };
 
@@ -66,16 +84,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${outfit.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${cormorant.variable} ${dmSans.variable} ${manrope.variable}`}>
       <head>
-        {/* Set tema sebelum paint agar tidak flicker — default: LIGHT */}
+        {/* Set tema sebelum paint agar tidak flicker — default: LIGHT MODE */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('preferred_theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}}catch(e){document.documentElement.classList.remove('dark');}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('preferred_theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}var l=localStorage.getItem('preferred_language');if(l==='id'){document.documentElement.lang='id';}else{document.documentElement.lang='en';}}catch(e){document.documentElement.classList.remove('dark');document.documentElement.lang='en';}})();`,
           }}
         />
       </head>
-      <body className="bg-slate-50 text-slate-900 dark:bg-[#080b11] dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
+      <body className="bg-[#F8F6F1] text-[#242321] dark:bg-[#1D1C1A] dark:text-[#F5F1E9] antialiased selection:bg-[#B59662] selection:text-white min-h-screen flex flex-col">
         <ThemeProvider>
           <LanguageProvider>
             {children}
